@@ -1,16 +1,16 @@
-<?php 
-  session_start(); 
+<?php
+  session_start();
 
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
+if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
     unset($_SESSION['isAdmin']);
-  	header("location: login.php");
-  }
+    header("location: login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,10 +29,10 @@
   	<?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
       	<h3>
-          <?php 
-          	echo $_SESSION['success']; 
-          	unset($_SESSION['success']);
-          ?>
+        <?php
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+            ?>
       	</h3>
       </div>
   	<?php endif ?>
@@ -40,15 +40,18 @@
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+    <p> Is Admin (1 - yes, 0 - no): <?php echo $_SESSION['isAdmin']; ?></p>
     <?php
-        if($_SESSION['isAdmin'] == 1){
-          include('adminMenu.php'); 
+    
+    if ($_SESSION['isAdmin'] == 1) {
+          include('adminMenu.php');
           
-        } else
-        {
+    } else 
+    {
           include('Menu.php');
-        }
+    }
     ?>
+    
     <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>    
    
     <?php endif ?>
