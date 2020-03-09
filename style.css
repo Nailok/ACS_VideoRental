@@ -2,6 +2,8 @@
     width: 100px;
 }
 
+
+
 .registration{
     text-align: center;
     font-size: 50px;
@@ -20,7 +22,7 @@ index {
 }
 
 .header {
-  width: 30%;
+  width: 50%;
   margin: 50px auto 0px;
   color: white;
   background: #5F9EA0;
@@ -30,10 +32,22 @@ index {
   border-radius: 10px 10px 0px 0px;
   padding: 20px;
 }
-form, .content {
-  width: 30%;
+
+.content {
+  width: 50%;
   margin: 0px auto;
   padding: 20px;
+ 
+  border: 1px solid #B0C4DE;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
+}
+
+form {
+  width: 60%;
+  margin: 0px auto;
+  padding: 20px;
+ 
   border: 1px solid #B0C4DE;
   background: white;
   border-radius: 0px 0px 10px 10px;
